@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {connect} from "react-redux";
+import {fetchStoreList, getGeolocation} from "./store/actions";
+
+import FindStores from './containers/FindStores';
+import StoreDetails from './containers/StoreDetails';
+
+class App extends Component {
+
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route path="/" exact component={FindStores}/>
+            <Route path="/store-details" exact component={StoreDetails}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({searchLocation: state.location, stores: state.storeList, storeMaps: state.storeMaps});
+
+export default connect(mapStateToProps)(App);
