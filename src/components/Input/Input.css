@@ -1,0 +1,14 @@
+.screen-reader-label {
+  display: none;
+}
+
+.search-input {
+  min-width: 500px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.input-wrapper {
+  display: flex;
+}

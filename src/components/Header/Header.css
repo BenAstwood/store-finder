@@ -1,0 +1,14 @@
+.header,
+.header__description,
+.header__title {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  padding: 1em 0;
+  background-color: #004e37;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
