@@ -1,0 +1,33 @@
+.results {
+  max-width: 1280px;
+  margin: 2em auto;
+}
+
+.results__header {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 2em;
+  border-bottom: 2px solid #004e37;
+  padding-bottom: 1em;
+  color: #004e37;
+}
+
+.results__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.results-container__map,
+.results-container__results {
+  flex: 1;
+}
+
+.results-container__map img {
+  width: 100%;
+}
+
+.results__container__results ul {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+}
