@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import Input from '../components/Input';
-import Button from '../components/Button';
+
+import Input from '../components/Input/Input';
+import Button from '../components/Button/Button';
+import Form from '../components/Form/Form'
 
 class SearchForm extends Component {
 
@@ -22,10 +24,10 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.showResults}>
+      <Form submitEvent={this.showResults}>
         <Input changed={(event) => this.inputChangedHandler(event)}/>
         <Button text='Search'/>
-      </form>
+      </Form>
     )
   }
 };
