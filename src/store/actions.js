@@ -19,10 +19,16 @@ export const fetchStoreList = (long, lat) => {
     )
       .then(response => response.json())
       .then(json => {
-        dispatch(fetchListSuccess(json));
+        if (!json.stores || json.stores.length === 0) {
+          dispatch(fetchListError("Couldn't find store, please search again"));
+        } else {
+          dispatch(fetchListSuccess(json));
+        }
         return json;
       })
-      .catch(err => fetchListError(err));
+      .catch(err => {
+        dispatch(fetchListError(err));
+      });
   };
 };
 
@@ -33,10 +39,10 @@ export const fetchListSuccess = stores => ({
   }
 });
 
-export const fetchListError = err => ({
+export const fetchListError = error => ({
   type: FETCH_STORE_LIST,
   payload: {
-    error: err
+    error: error
   }
 });
 
@@ -62,7 +68,12 @@ export const getGeolocation = inputedLocation => {
           )
         );
       })
-      .catch(err => getGeolocationError(err));
+      .catch(err => {
+        dispatch(
+          getGeolocationError("Couldn't find this location please try again")
+        );
+        return err;
+      });
   };
 };
 
@@ -73,9 +84,9 @@ export const getGeolocationSuccess = location => ({
   }
 });
 
-export const getGeolocationError = err => ({
+export const getGeolocationError = error => ({
   type: GET_GEOLOCATION,
   payload: {
-    error: err
+    error: error
   }
 });
