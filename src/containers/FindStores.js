@@ -35,7 +35,7 @@ class FindStores extends Component {
 
   render() {
     let mapUrl = null;
-    const { stores, searchLocation } = this.props;
+    const { stores, searchLocation, error } = this.props;
 
     if (searchLocation.name && Array.isArray(stores)) {
       const { stores, searchLocation } = this.props;
@@ -53,7 +53,8 @@ class FindStores extends Component {
           <SearchForm updateOnSubmit={this.formSubmitHandler} />
         </LayoutContainer>
         <LayoutContainer>
-          {mapUrl !== null ? (
+          {error !== null ? <p>{error}</p> : ""}
+          {error === null && mapUrl !== null ? (
             <StoreResults
               mapUrl={mapUrl}
               stores={stores}
@@ -71,7 +72,8 @@ class FindStores extends Component {
 const mapStateToProps = state => ({
   searchLocation: state.location,
   stores: state.storeList,
-  storeMaps: state.storeMaps
+  storeMaps: state.storeMaps,
+  error: state.error
 });
 
 export default connect(mapStateToProps)(FindStores);
