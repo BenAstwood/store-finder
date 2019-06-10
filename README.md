@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Mapbox and google maps api tokens required
+
+To use this application a file called tokens.js must been created in the src folder. This file must export `googleMapsKey`, `mapBoxKey` and `morrisonsApiKey` variables which should have the relevent api key strings assigned to them. <br><br> For the mapbox api you can sign up for free at `https://www.mapbox.com/`.
+
 ## Available Scripts
 
 In the project directory, you can run:
