@@ -1,0 +1,23 @@
+.details-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: left;
+}
+
+.details-container__header {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 2em;
+  border-bottom: 2px solid #004e37;
+  padding-bottom: 1em;
+  color: #004e37;
+}
+
+.details-container__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-container__content__image img {
+  width: 100%;
+}
