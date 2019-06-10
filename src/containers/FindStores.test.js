@@ -25,7 +25,7 @@ describe("<FindStores />", () => {
       },
       error: true
     });
-    expect(wrapper.find(".error-message"));
+    expect(wrapper.find(".error-message")).toHaveLength(1);
   });
 
   it("If a store prop is provided then StoreResults component should render", () => {
@@ -52,6 +52,6 @@ describe("<FindStores />", () => {
       },
       error: null
     });
-    expect(wrapper.find(StoreResults));
+    expect(wrapper.find(StoreResults)).toHaveLength(1);
   });
 });

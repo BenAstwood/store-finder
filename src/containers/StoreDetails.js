@@ -8,7 +8,7 @@ import LayoutContainer from "../components/LayoutContainer/LayoutContainer";
 
 import { googleMapsKey } from "../tokens";
 
-class StoreDetails extends Component {
+export class StoreDetails extends Component {
   createSingleMapUrl = center => {
     return `https://maps.googleapis.com/maps/api/staticmap?center=${
       center.latitude
