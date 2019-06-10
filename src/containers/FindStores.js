@@ -10,7 +10,7 @@ import Header from "../components/Header/Header";
 import StoreResults from "../components/StoreResults/StoreResults";
 import LayoutContainer from "../components/LayoutContainer/LayoutContainer";
 
-class FindStores extends Component {
+export class FindStores extends Component {
   createMapUrl = (searchLocation, markers) => {
     const markerCheck =
       markers[0].location && markers[0].location.latitude
@@ -37,9 +37,12 @@ class FindStores extends Component {
     let mapUrl = null;
     const { stores, searchLocation, error } = this.props;
 
-    if (searchLocation.name && Array.isArray(stores)) {
-      const { stores, searchLocation } = this.props;
-
+    if (
+      searchLocation &&
+      searchLocation.name &&
+      Array.isArray(stores) &&
+      stores.length > 0
+    ) {
       mapUrl = this.createMapUrl(searchLocation.name, stores);
     }
 
@@ -53,7 +56,7 @@ class FindStores extends Component {
           <SearchForm updateOnSubmit={this.formSubmitHandler} />
         </LayoutContainer>
         <LayoutContainer>
-          {error !== null ? <p>{error}</p> : ""}
+          {error !== null ? <p className="error-message">{error}</p> : ""}
           {error === null && mapUrl !== null ? (
             <StoreResults
               mapUrl={mapUrl}
