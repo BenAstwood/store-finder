@@ -1,7 +1,7 @@
-import { FETCH_STORE_LIST, GET_GEOLOCATION, SELECT_STORE } from "./actions";
+import { FETCH_STORE_LIST, GET_GEOLOCATION } from "./actions";
 
 const initialState = {
-  storesList: [],
+  storeList: [],
   location: {
     name: null,
     long: null,
@@ -41,19 +41,6 @@ const reducer = (state = initialState, action) => {
             lat: action.payload.location[0].center[1]
           },
           error: null
-        };
-      }
-
-    case SELECT_STORE:
-      if (action.payload.error) {
-        return {
-          ...state,
-          error: action.payload.error
-        };
-      } else {
-        return {
-          ...state,
-          selectedStore: action.payload.selectedStore
         };
       }
 

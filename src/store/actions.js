@@ -2,7 +2,6 @@ import { mapBoxKey, morrisonsApiKey } from "../tokens";
 
 export const GET_GEOLOCATION = "GET_GEOLOCATION";
 export const FETCH_STORE_LIST = "FETCH_STORE_LIST";
-export const SELECT_STORE = "SELECT_STORE";
 
 export const fetchStoreList = (long, lat) => {
   return dispatch => {
