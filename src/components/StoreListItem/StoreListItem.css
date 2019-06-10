@@ -1,0 +1,17 @@
+.store-list-item {
+  display: flex;
+  margin: 1em 0 1em 3em;
+  padding: 1.5em 2em;
+  border-radius: 3px;
+  border: 1px solid #d5dcd9;
+}
+
+.store-list-item__header {
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+.store-list-item__details,
+.store-list-item__cta {
+  display: inline-block;
+}
